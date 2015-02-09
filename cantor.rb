@@ -33,8 +33,10 @@ class Cantor
 
     factorial_array.each_with_index do |factorial, i|
       j = factorial_array.length - i
-      cantor_coefficient_hash[j] = Math.floor(working_remainder/factorial) 
+      quotient = (working_remainder/factorial).floor 
       working_remainder = working_remainder % factorial
+      next if i == 0 && quotient == 0 # kind of odd, but we have to account for if our cantor expansion is for a factorial number itself, but if its not we don't want to include a 0 value in front of most numbers
+      cantor_coefficient_hash[j] = quotient
     end
 
     cantor_coefficient_hash
@@ -46,7 +48,7 @@ class Cantor
     factorial = 1
     i = 1
 
-    while factorial >= @raw_integer
+    while factorial <= @raw_integer
       factorial *= i
       factorial_array << factorial
       i += 1
