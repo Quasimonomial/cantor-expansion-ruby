@@ -21,8 +21,24 @@ class Cantor
 
   private
   def convert_to_cantor
-    
+    factorial_array = []
+    factorial = 1
+    i = 1
+
   end
 
+  def fill_factorial_array
+    factorial_array = []
+    factorial = 1
+    i = 1
+
+    while factorial >= self.raw_integer
+      factorial *= i
+      factorial_array << factorial
+      i += 1
+    end
+
+    factorial_array.reverse!
+  end
 
 end
