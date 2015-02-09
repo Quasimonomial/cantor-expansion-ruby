@@ -7,9 +7,12 @@ class Cantor
     @cantor_expansion_coefficients = convert_to_cantor
   end
 
-  # def + other_cantor
-  
-  # end
+  def + other_cantor #note this is a function that simulates how you would add cantor expansions on paper, the efficent way would be the add the raw integers and return the result, this is more interesting
+    #this function also retunrs a cantor hash instead of a new object, as I don't have a hash to raw integer converter... something I'll fix if I come back to this project.  shouldn't be too bad, as this is mostly for fun anyway
+    # sum_cantor_coefficients = Hash.new 
+    
+    #I need a better way to do defaults for hashes, so I guess I'll come back to this and tweak it later
+  end
 
   def == other_cantor
     @raw_integer = other_cantor.raw_integer
