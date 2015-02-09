@@ -21,10 +21,15 @@ class Cantor
 
   private
   def convert_to_cantor
-    factorial_array = []
-    factorial = 1
-    i = 1
+    factorial_array = fill_factorial_array
+    cantor_coefficient_hash = {}
+    working_remainder = self.raw_integer
 
+    factorial_array.each_with_index do |factorial, i|
+      j = factorial_array.length - i
+      cantor_coefficient_hash[j] = Math.floor(working_remainder/factorial) 
+      working_remainder = working_remainder % factorial
+    end
   end
 
   def fill_factorial_array
