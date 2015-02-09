@@ -4,7 +4,7 @@ class Cantor
 
   def initialize raw_integer
     @raw_integer = raw_integer
-    @cantor_expansion = convert_to_cantor
+    @cantor_expansion_coefficients = convert_to_cantor
   end
 
   # def + other_cantor
@@ -12,15 +12,18 @@ class Cantor
   # end
 
   def == other_cantor
-    other_cantor.raw_integer == @raw_integer
+    @raw_integer = other_cantor.raw_integer
   end
 
   def to_s
-    self.cantor_expansion.keys.reverse.each do |key, value|
-      puts "Term"
-      puts key
-      puts value
+    cantor_strings = []
+    @cantor_expansion_coefficients.keys.sort.reverse.each do |key|
+      value = @cantor_expansion_coefficients[key];
+      next if value == 0
+      cantor_strings << value.to_s + "*" + key.to_s + "!" 
     end
+
+    cantor_strings.join(" + ")
   end
 
   private
