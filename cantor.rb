@@ -3,16 +3,16 @@ class Cantor
   attr_reader :cantor_expansion
 
   def initialize raw_integer
-    self.raw_integer = raw_integer
-    self.cantor_expansion = convert_to_cantor
+    @raw_integer = raw_integer
+    @cantor_expansion = convert_to_cantor
   end
 
-  def + other_cantor
+  # def + other_cantor
   
-  end
+  # end
 
   def == other_cantor
-    other_cantor.raw_integer == self.raw_integer
+    other_cantor.raw_integer == @raw_integer
   end
 
   def to_s
@@ -25,9 +25,11 @@ class Cantor
 
   private
   def convert_to_cantor
+    p "Here!"
     factorial_array = fill_factorial_array
+    p factorial_array
     cantor_coefficient_hash = {}
-    working_remainder = self.raw_integer
+    working_remainder = @raw_integer
 
     factorial_array.each_with_index do |factorial, i|
       j = factorial_array.length - i
@@ -39,11 +41,12 @@ class Cantor
   end
 
   def fill_factorial_array
+    p "Now here!"
     factorial_array = []
     factorial = 1
     i = 1
 
-    while factorial >= self.raw_integer
+    while factorial >= @raw_integer
       factorial *= i
       factorial_array << factorial
       i += 1
