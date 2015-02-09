@@ -10,9 +10,13 @@ class Cantor
 
   end
 
+  def == other_cantor
+    other_cantor.raw_integer == self.raw_integer
+  end
+
   private
   def convert_to_cantor
   end
-  
+
 
 end
